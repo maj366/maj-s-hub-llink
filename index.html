@@ -6,16 +6,18 @@
     <title>Server Link Hub</title>
     <style>
         :root {
-            --bg-color: #1e1e24;
-            --card-bg: #2a2a35;
+            --bg-color: #121217;
+            --card-bg: #1e1e24;
             --text-color: #f5f5f5;
-            --accent-discord: #5865F2;
-            --accent-minecraft: #478547;
-            --hover-brightness: 1.1;
+            --accent-discord: #7289DA;
+            --accent-minecraft: #65C965;
+            --hover-brightness: 1.2;
+            --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            --glow-color: rgba(255, 255, 255, 0.1);
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
@@ -24,110 +26,57 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            overflow: hidden; /* For background effect */
+        }
+
+        /* Subtle background pattern */
+        body::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 25px 25px;
+            animation: move-background 30s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes move-background {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-25px, -25px); }
         }
 
         .container {
             width: 100%;
             max-width: 450px;
-            padding: 20px;
+            padding: 40px; /* More padding */
             text-align: center;
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border */
+        }
+
+        .profile-img-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
         }
 
         .profile-img {
-            width: 96px;
-            height: 96px;
+            width: 110px; /* Slightly larger */
+            height: 110px;
             border-radius: 50%;
-            border: 3px solid #fff;
-            margin-bottom: 15px;
+            border: 4px solid var(--text-color);
+            box-shadow: 0 0 15px var(--glow-color); /* Subtle glow */
         }
 
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-
-        .subtitle {
-            color: #aaa;
-            font-size: 1rem;
-            margin-bottom: 30px;
-        }
-
-        .links-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .btn {
-            display: block;
-            padding: 15px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: transform 0.2s, filter 0.2s;
-            cursor: pointer;
-            border: none;
-            box-sizing: border-box;
-            width: 100%;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            filter: brightness(var(--hover-brightness));
-        }
-
-        .btn-discord {
-            background-color: var(--accent-discord);
-        }
-
-        .btn-minecraft {
-            background-color: var(--accent-minecraft);
-        }
-
-        /* Tooltip style for copy confirmation */
-        .copy-status {
-            font-size: 0.85rem;
-            color: #4cd137;
-            margin-top: 5px;
-            display: none;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <img class="profile-img" src="https://via.placeholder.com/150" alt="Server Logo">
-
-        <h1>Welcome to the Community</h1>
-        <p class="subtitle">Connect with us on Discord and join our Minecraft server!</p>
-
-        <div class="links-container">
-            <a href="#" target="_blank" class="btn btn-discord">Join our Discord</a>
-
-            <button onclick="copyIP('play.yourserver.com')" class="btn btn-minecraft">
-                Server IP: play.yourserver.com
-            </button>
-            <div id="copy-text" class="copy-status">IP copied to clipboard!</div>
-        </div>
-    </div>
-
-    <script>
-        function copyIP(ipAddress) {
-            navigator.clipboard.writeText(ipAddress).then(() => {
-                const statusText = document.getElementById('copy-text');
-                statusText.style.display = 'block';
-                
-                // Hide the confirmation message after 2.5 seconds
-                setTimeout(() => {
-                    statusText.style.display = 'none';
-                }, 2500);
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
-            });
-        }
-    </script>
-
-</body>
-</html>
+        /* Optional status indicator (e.g., online) */
+        .profile-img-container::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 20px;
