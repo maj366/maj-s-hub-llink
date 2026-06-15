@@ -80,3 +80,133 @@
             bottom: 5px;
             right: 5px;
             width: 20px;
+            height: 20px;
+            background-color: #4cd137; /* Online green */
+            border-radius: 50%;
+            border: 3px solid var(--card-bg);
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: #b0b0b0; /* Slightly lighter */
+            font-size: 1.05rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 18px; /* Slightly more space */
+        }
+
+        .btn {
+            display: flex; /* Centering text and potentially icons */
+            align-items: center;
+            justify-content: center;
+            padding: 18px 25px; /* Bigger padding */
+            border-radius: 10px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600; /* Medium-bold */
+            font-size: 1.15rem;
+            transition: all 0.3s ease; /* Smoother transition */
+            cursor: pointer;
+            border: none;
+            box-sizing: border-box;
+            width: 100%;
+            position: relative; /* For glow effect */
+            overflow: hidden; /* Keep glow inside */
+        }
+
+        /* Subtle button glow on hover */
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn:hover::after {
+            opacity: 1;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            filter: brightness(var(--hover-brightness));
+        }
+
+        .btn:active {
+            transform: translateY(-1px); /* More subtle on click */
+        }
+
+        .btn-discord {
+            background-color: var(--accent-discord);
+        }
+
+        .btn-minecraft {
+            background-color: var(--accent-minecraft);
+        }
+
+        /* Copy Status Message Styling */
+        .copy-status {
+            font-size: 0.9rem;
+            color: #65C965; /* Matches Minecraft button */
+            margin-top: 8px;
+            display: none;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="profile-img-container">
+            <img class="profile-img" src="https://via.placeholder.com/150" alt="Server Logo">
+        </div>
+
+        <h1>Game Community</h1>
+        <p class="subtitle">Join our Discord server to connect with others and get the latest updates. Then jump into our Minecraft server for the ultimate adventure!</p>
+
+        <div class="links-container">
+            <a href="#" target="_blank" class="btn btn-discord">
+                Join our Discord
+            </a>
+
+            <button onclick="copyIP('play.yourserver.com')" class="btn btn-minecraft">
+                Server IP: play.yourserver.com
+            </button>
+            <div id="copy-text" class="copy-status">IP copied to clipboard!</div>
+        </div>
+    </div>
+
+    <script>
+        function copyIP(ipAddress) {
+            navigator.clipboard.writeText(ipAddress).then(() => {
+                const statusText = document.getElementById('copy-text');
+                statusText.style.display = 'block';
+                
+                setTimeout(() => {
+                    statusText.style.display = 'none';
+                }, 2500);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+    </script>
+
+</body>
+</html>
