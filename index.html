@@ -3,131 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server Link Hub</title>
+    <title>MAJ Minecraft Network</title>
     <style>
-        :root {
-            --bg-color: #1e1e24;
-            --card-bg: #2a2a35;
-            --text-color: #f5f5f5;
-            --accent-discord: #5865F2;
-            --accent-minecraft: #478547;
-            --hover-brightness: 1.1;
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 450px;
             padding: 20px;
-            text-align: center;
         }
 
-        .profile-img {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            border: 3px solid #fff;
+        /* Header */
+        header {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: #ffaa00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #aaaaaa;
+        }
+
+        /* Server Container */
+        .server-container {
+            display: flex;
+            gap: 30px;
+            max-width: 1000px;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Server Cards */
+        .server-card {
+            background-color: #1e1e1e;
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 30px;
+            width: 450px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .server-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Specific Card Themes */
+        .lifesteal-card:hover {
+            border-color: #ff3333;
+        }
+
+        .anarchy-card:hover {
+            border-color: #888888;
+        }
+
+        .server-card h2 {
+            font-size: 2rem;
             margin-bottom: 15px;
         }
 
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
+        .lifesteal-title {
+            color: #ff3333;
         }
 
-        .subtitle {
-            color: #aaa;
-            font-size: 1rem;
-            margin-bottom: 30px;
+        .anarchy-title {
+            color: #aaaaaa;
         }
 
-        .links-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .btn {
-            display: block;
-            padding: 15px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
+        .server-card p {
+            color: #cccccc;
             font-size: 1.1rem;
-            transition: transform 0.2s, filter 0.2s;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            min-height: 80px;
+        }
+
+        /* IP Box */
+        .ip-box {
+            background-color: #111;
+            border: 1px solid #444;
+            padding: 12px;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1rem;
+            color: #00ffcc;
+            font-weight: bold;
+            margin-bottom: 15px;
             cursor: pointer;
-            border: none;
-            box-sizing: border-box;
-            width: 100%;
+            position: relative;
+            user-select: all;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            filter: brightness(var(--hover-brightness));
+        .ip-box:active {
+            background-color: #1a1a1a;
         }
 
-        .btn-discord {
-            background-color: var(--accent-discord);
+        .click-hint {
+            font-size: 0.8rem;
+            color: #777777;
+            display: block;
+            margin-top: -5px;
         }
 
-        .btn-minecraft {
-            background-color: var(--accent-minecraft);
-        }
-
-        /* Tooltip style for copy confirmation */
-        .copy-status {
-            font-size: 0.85rem;
-            color: #4cd137;
-            margin-top: 5px;
-            display: none;
+        /* Footer */
+        footer {
+            margin-top: auto;
+            padding: 40px 0 20px 0;
+            color: #555555;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <img class="profile-img" src="https://cdn.discordapp.com/attachments/1306360789761921187/1516045356767383674/Un41titled.png?ex=6a3136c3&is=6a2fe543&hm=b871c9c7553f5995f737a165e3de1666028340882c185c6ade2ff1fb5d2f86e1&" alt="Server Logo">
+    <header>
+        <h1>MAJ MINECRAFT NETWORK</h1>
+        <p>Choose your gamemode and join the adventure today!</p>
+    </header>
 
-        <h1>Welcome to the Community</h1>
-        <p class="subtitle">Connect with us on Discord and join our Minecraft server!</p>
+    <div class="server-container">
 
-        <div class="links-container">
-            <a href="https://discord.gg/KZaM3N7e6y" target="_blank" class="btn btn-discord">Join our Discord</a>
-
-            <button onclick="copyIP('play.yourserver.com')" class="btn btn-minecraft">
-                Server IP: majsmp.falix.gg
-            </button>
-            <div id="copy-text" class="copy-status">IP copied to clipboard!</div>
+        <div class="server-card lifesteal-card">
+            <h2 class="lifesteal-title">Lifesteal SMP</h2>
+            <p>Kill players to steal their hearts, but be careful—if you lose all your hearts, you get banned! Team up, gear up, and fight to survive.</p>
+            <div class="ip-box" onclick="navigator.clipboard.writeText('majlifesteal.falix.gg'); alert('IP Copied!');">
+                majlifesteal.falix.gg
+            </div>
+            <span class="click-hint">Click the IP box to copy</span>
         </div>
+
+        <div class="server-card anarchy-card">
+            <h2 class="anarchy-title">Vanilla / Anarchy</h2>
+            <p>Pure Minecraft freedom. No rules, no grief claims, and no boundaries. Survive in a true vanilla environment where only the strongest prevail.</p>
+            <div class="ip-box" onclick="navigator.clipboard.writeText('majsmp.falix.gg'); alert('IP Copied!');">
+                majsmp.falix.gg
+            </div>
+            <span class="click-hint">Click the IP box to copy</span>
+        </div>
+
     </div>
 
-    <script>
-        function copyIP(ipAddress) {
-            navigator.clipboard.writeText(ipAddress).then(() => {
-                const statusText = document.getElementById('copy-text');
-                statusText.style.display = 'block';
-                
-                // Hide the confirmation message after 2.5 seconds
-                setTimeout(() => {
-                    statusText.style.display = 'none';
-                }, 2500);
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
-            });
-        }
-    </script>
+    <footer>
+        <p>&copy; 2026 MAJ Servers. Not affiliated with Mojang Studios.</p>
+    </footer>
 
 </body>
 </html>
