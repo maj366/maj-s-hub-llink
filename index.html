@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAJ Minecraft Network</title>
+    <title>Maj's Minecraft Network</title>
     <style>
         /* Reset and Base Styles */
         * {
@@ -27,7 +27,7 @@
         header {
             text-align: center;
             margin-top: 40px;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
         }
 
         header h1 {
@@ -40,6 +40,34 @@
         header p {
             font-size: 1.2rem;
             color: #aaaaaa;
+        }
+
+        /* Discord Button */
+        .discord-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #5865F2;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            transition: background-color 0.2s, transform 0.2s;
+            box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
+        }
+
+        .discord-btn:hover {
+            background-color: #4752C4;
+            transform: translateY(-2px);
+        }
+
+        .discord-icon {
+            width: 24px;
+            height: 24px;
+            fill: white;
         }
 
         /* Server Container */
@@ -62,110 +90,12 @@
             text-align: center;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
             transition: transform 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
         }
 
         .server-card:hover {
             transform: translateY(-5px);
         }
 
-        /* Specific Card Themes */
-        .lifesteal-card:hover {
-            border-color: #ff3333;
-        }
-
-        .anarchy-card:hover {
-            border-color: #888888;
-        }
-
-        .server-card h2 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .lifesteal-title {
-            color: #ff3333;
-        }
-
-        .anarchy-title {
-            color: #aaaaaa;
-        }
-
-        .server-card p {
-            color: #cccccc;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            min-height: 80px;
-        }
-
-        /* IP Box */
-        .ip-box {
-            background-color: #111;
-            border: 1px solid #444;
-            padding: 12px;
-            border-radius: 6px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1.1rem;
-            color: #00ffcc;
-            font-weight: bold;
-            margin-bottom: 15px;
-            cursor: pointer;
-            position: relative;
-            user-select: all;
-        }
-
-        .ip-box:active {
-            background-color: #1a1a1a;
-        }
-
-        .click-hint {
-            font-size: 0.8rem;
-            color: #777777;
-            display: block;
-            margin-top: -5px;
-        }
-
-        /* Footer */
-        footer {
-            margin-top: auto;
-            padding: 40px 0 20px 0;
-            color: #555555;
-            font-size: 0.9rem;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>MAJ MINECRAFT NETWORK</h1>
-        <p>Choose your gamemode and join the adventure today!</p>
-    </header>
-
-    <div class="server-container">
-
-        <div class="server-card lifesteal-card">
-            <h2 class="lifesteal-title">Lifesteal SMP</h2>
-            <p>Kill players to steal their hearts, but be careful—if you lose all your hearts, you get banned! Team up, gear up, and fight to survive.</p>
-            <div class="ip-box" onclick="navigator.clipboard.writeText('majlifesteal.falix.gg'); alert('IP Copied!');">
-                majlifesteal.falix.gg
-            </div>
-            <span class="click-hint">Click the IP box to copy</span>
-        </div>
-
-        <div class="server-card anarchy-card">
-            <h2 class="anarchy-title">Vanilla / Anarchy</h2>
-            <p>Pure Minecraft freedom. No rules, no grief claims, and no boundaries. Survive in a true vanilla environment where only the strongest prevail.</p>
-            <div class="ip-box" onclick="navigator.clipboard.writeText('majsmp.falix.gg'); alert('IP Copied!');">
-                majsmp.falix.gg
-            </div>
-            <span class="click-hint">Click the IP box to copy</span>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2026 MAJ Servers. Not affiliated with Mojang Studios.</p>
-    </footer>
-
-</body>
-</html>
+        .lifesteal-card
